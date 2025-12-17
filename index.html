@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOMIGO - Kos Jakarta Terbaik</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        /* HEADER */
+        header {
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .logo-img {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #dc143c 0%, #ffffff 50%, #dc143c 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            border: 2px solid #dc143c;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #dc143c;
+        }
+
+        .logo-text small {
+            display: block;
+            font-size: 10px;
+            color: #999;
+            font-weight: normal;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            color: #dc143c;
+        }
+
+        nav a.active {
+            color: #dc143c;
+            border-bottom: 3px solid #dc143c;
+            padding-bottom: 5px;
+        }
+
+        .btn-pasang-iklan {
+            background: linear-gradient(135deg, #dc143c 0%, #ff1744 100%);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-pasang-iklan:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(220, 20, 60, 0.3);
+        }
+
+        /* MAIN CONTENT */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .page-title h1 {
+            font-size: 32px;
+            color: #dc143c;
+            margin-bottom: 8px;
+        }
+
+        .page-title p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .container-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 30px;
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            height: fit-content;
+        }
+
+        .filter-box {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .filter-box h3 {
+            color: #dc143c;
+            font-size: 16px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .filter-box ul {
+            list-style: none;
+        }
+
+        .filter-box li {
+            margin-bottom: 10px;
+        }
+
+        .filter-box a {
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .filter-box a:hover {
+            color: #dc143c;
+        }
+
+        .filter-box a.active {
+            color: #dc143c;
+            font-weight: bold;
+        }
+
+        .counter {
+            background: #f0f0f0;
+            color: #999;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        /* LISTINGS */
+        .listings-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 20px;
+            min-height: 400px;
+        }
+
+        .listing-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .listing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 16px rgba(220, 20, 60, 0.2);
+        }
+
+        .listing-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #bbb;
+            font-size: 48px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .listing-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #dc143c;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .listing-content {
+            padding: 15px;
+        }
+
+        .listing-title {
+            font-size: 15px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+            line-height: 1.4;
+            min-height: 35px;
+        }
+
+        .listing-info {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .listing-info span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .listing-price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #dc143c;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 10px;
+        }
+
+        .listing-action {
+            margin-top: 10px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-detail {
+            flex: 1;
+            background: #f0f0f0;
+            color: #333;
+            padding: 8px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        .btn-detail:hover {
+            background: #e0e0e0;
+        }
+
+        .btn-hubungi {
+            flex: 1;
+            background: #dc143c;
+            color: white;
+            padding: 8px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        .btn-hubungi:hover {
+            background: #b01030;
+        }
+
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.6);
+            overflow-y: auto;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 800px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            margin-top: 30px;
+            animation: slideIn 0.3s;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .close-modal {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .close-modal:hover {
+            color: #dc143c;
+        }
+
+        .modal h2 {
+            color: #dc143c;
+            margin-bottom: 20px;
+            margin-top: 0;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #dc143c;
+            box-shadow: 0 0 5px rgba(220, 20, 60, 0.3);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: linear-gradient(135deg, #dc143c 0%, #ff1744 100%);
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+            font-size: 16px;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-kembali {
+            background: #f0f0f0;
+            color: #333;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .btn-kembali:hover {
+            background: #e0e0e0;
+        }
+
+        /* DETAIL MODAL */
+        .detail-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .detail-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+        }
+
+        .detail-info h3 {
+            color: #dc143c;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+
+        .detail-info p {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .detail-price {
+            font-size: 24px;
+            font-weight: bold;
+            color: #dc143c;
+            margin: 20px 0;
+        }
+
+        .detail-features {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+
+        .detail-features h4 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .detail-features ul {
+            list-style: none;
+        }
+
+        .detail-features li {
+            padding: 5px 0;
+            color: #666;
+        }
+
+        .detail-features li:before {
+            content: "✓ ";
+            color: #dc143c;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .detail-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .detail-actions button {
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .detail-actions .btn-hubungi {
+            background: #dc143c;
+            color: white;
+        }
+
+        .detail-actions .btn-hubungi:hover {
+            background: #b01030;
+        }
+
+        .empty-state {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 40px;
+            color: #999;
+        }
+
+        @media (max-width: 768px) {
+            .container-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .header-container {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            nav {
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .listings-container {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            }
+
+            .page-title h1 {
+                font-size: 24px;
+            }
+
+            .detail-container {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <a onclick="goHome()" class="logo">
+                <img src="c:\Users\Tama 25\Desktop\KOS\www.sewakost.com\www.sewakost.com\kost-jakarta\logo.jpg" alt="HOMIGO" style="width: 100px; height: 100px; border-radius: 8px;">
+                <div>
+                    <div class="logo-text">HOMIGO</div>
+                    <small>Kos Jakarta</small>
+                </div>
+            </a>
+
+            <nav>
+                <a onclick="goHome()" class="active">Kos</a>
+                <a onclick="goToFurniture()">Sewa Furniture</a>
+            </nav>
+
+            <button class="btn-pasang-iklan" onclick="openPasangIklanModal()">📢 Pasang Iklan</button>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main id="mainContent">
+        <!-- HOME PAGE - KOS -->
+        <div id="homePage">
+            <div class="page-title">
+                <h1>Kos Jakarta Berkualitas</h1>
+                <p>Temukan kos impianmu di Jakarta dengan HOMIGO</p>
+            </div>
+
+            <div class="container-layout">
+                <!-- SIDEBAR FILTER KOS -->
+                <aside class="sidebar">
+                    <div class="filter-box">
+                        <h3>📍 Lokasi</h3>
+                        <ul>
+                            <li><a onclick="filterBy('lokasi', 'Jakarta Barat')" data-filter="Jakarta Barat"><span>Jakarta Barat</span></a></li>
+                            <li><a onclick="filterBy('lokasi', 'Jakarta Pusat')" data-filter="Jakarta Pusat"><span>Jakarta Pusat</span></a></li>
+                            <li><a onclick="filterBy('lokasi', 'Jakarta Selatan')" data-filter="Jakarta Selatan"><span>Jakarta Selatan</span></a></li>
+                            <li><a onclick="filterBy('lokasi', 'Jakarta Timur')" data-filter="Jakarta Timur"><span>Jakarta Timur</span></a></li>
+                            <li><a onclick="filterBy('lokasi', 'Jakarta Utara')" data-filter="Jakarta Utara"><span>Jakarta Utara</span></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="filter-box">
+                        <h3>👥 Jenis Kos</h3>
+                        <ul>
+                            <li><a onclick="filterBy('jenis', 'Kost Campur')" data-filter="Kost Campur"><span>Kost Campur</span></a></li>
+                            <li><a onclick="filterBy('jenis', 'Kost Putri')" data-filter="Kost Putri"><span>Kost Putri</span></a></li>
+                            <li><a onclick="filterBy('jenis', 'Kost Putra')" data-filter="Kost Putra"><span>Kost Putra</span></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="filter-box">
+                        <h3>🔧 Fasilitas</h3>
+                        <ul>
+                            <li><a onclick="filterBy('fasilitas', 'AC')" data-filter="AC"><span>AC</span></a></li>
+                            <li><a onclick="filterBy('fasilitas', 'WiFi')" data-filter="WiFi"><span>WiFi Gratis</span></a></li>
+                            <li><a onclick="filterBy('fasilitas', 'Kamar Mandi Dalam')" data-filter="Kamar Mandi Dalam"><span>Kamar Mandi Dalam</span></a></li>
+                            <li><a onclick="filterBy('fasilitas', 'Parkir')" data-filter="Parkir"><span>Parkir</span></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="filter-box">
+                        <h3>💰 Harga</h3>
+                        <ul>
+                            <li><a onclick="filterBy('harga', '0-500000')" data-filter="0-500000"><span>< Rp 500rb</span></a></li>
+                            <li><a onclick="filterBy('harga', '500000-1000000')" data-filter="500000-1000000"><span>Rp 500rb - 1jt</span></a></li>
+                            <li><a onclick="filterBy('harga', '1000000-2000000')" data-filter="1000000-2000000"><span>Rp 1jt - 2jt</span></a></li>
+                            <li><a onclick="filterBy('harga', '2000000-3000000')" data-filter="2000000-3000000"><span>Rp 2jt - 3jt</span></a></li>
+                            <li><a onclick="filterBy('harga', '3000000-9999999')" data-filter="3000000-9999999"><span>> Rp 3jt</span></a></li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <!-- LISTINGS KOS -->
+                <div id="listingsContainer" class="listings-container"></div>
+            </div>
+        </div>
+
+        <!-- FURNITURE PAGE -->
+        <div id="furniturePage" style="display: none;">
+            <div class="page-title">
+                <h1>Sewa Furniture Kos</h1>
+                <p>Lengkapi kamarmu dengan furniture berkualitas dari HOMIGO</p>
+            </div>
+
+            <div class="container-layout" style="grid-template-columns: 280px 1fr;">
+                <!-- SIDEBAR FILTER FURNITURE -->
+                <aside class="sidebar">
+                    <div class="filter-box">
+                        <h3>🏷️ Kategori</h3>
+                        <ul>
+                            <li><a onclick="filterFurniture('kategori', 'Semua')" data-filter="Semua"><span>Semua</span></a></li>
+                            <li><a onclick="filterFurniture('kategori', 'Kursi')" data-filter="Kursi"><span>Kursi</span></a></li>
+                            <li><a onclick="filterFurniture('kategori', 'Meja')" data-filter="Meja"><span>Meja</span></a></li>
+                            <li><a onclick="filterFurniture('kategori', 'Lemari')" data-filter="Lemari"><span>Lemari</span></a></li>
+                            <li><a onclick="filterFurniture('kategori', 'Jemuran')" data-filter="Jemuran"><span>Jemuran</span></a></li>
+                            <li><a onclick="filterFurniture('kategori', 'Rak Sepatu')" data-filter="Rak Sepatu"><span>Rak Sepatu</span></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="filter-box">
+                        <h3>💰 Harga Sewa</h3>
+                        <ul>
+                            <li><a onclick="filterFurniture('harga', '0-50000')" data-filter="0-50000"><span>< Rp 50rb</span></a></li>
+                            <li><a onclick="filterFurniture('harga', '50000-100000')" data-filter="50000-100000"><span>Rp 50rb - 100rb</span></a></li>
+                            <li><a onclick="filterFurniture('harga', '100000-200000')" data-filter="100000-200000"><span>Rp 100rb - 200rb</span></a></li>
+                            <li><a onclick="filterFurniture('harga', '200000-500000')" data-filter="200000-500000"><span>> Rp 200rb</span></a></li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <!-- LISTINGS FURNITURE -->
+                <div id="furnitureContainer" class="listings-container"></div>
+            </div>
+
+            <button class="btn-kembali" onclick="goHome()" style="display: block; margin: 30px auto 0;">← Kembali ke Kos</button>
+        </div>
+    </main>
+
+    <!-- MODAL DETAIL -->
+    <div id="detailModal" class="modal">
+        <div class="modal-content" id="detailContent"></div>
+    </div>
+
+    <!-- MODAL PASANG IKLAN -->
+    <div id="pasangIklanModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('pasangIklanModal')">&times;</span>
+            <h2>📝 Pasang Iklan Kos Baru</h2>
+            <form onsubmit="submitPasangIklan(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="namaKos">Nama Kos *</label>
+                        <input type="text" id="namaKos" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="hargaKos">Harga (Rp/bulan) *</label>
+                        <input type="number" id="hargaKos" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="lokasiKos">Lokasi *</label>
+                        <select id="lokasiKos" required>
+                            <option value="">Pilih Lokasi</option>
+                            <option value="Jakarta Barat">Jakarta Barat</option>
+                            <option value="Jakarta Pusat">Jakarta Pusat</option>
+                            <option value="Jakarta Selatan">Jakarta Selatan</option>
+                            <option value="Jakarta Timur">Jakarta Timur</option>
+                            <option value="Jakarta Utara">Jakarta Utara</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="jenisKos">Jenis Kos *</label>
+                        <select id="jenisKos" required>
+                            <option value="">Pilih Jenis</option>
+                            <option value="Kost Campur">Kost Campur</option>
+                            <option value="Kost Putri">Kost Putri</option>
+                            <option value="Kost Putra">Kost Putra</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="deskripsiKos">Deskripsi *</label>
+                    <textarea id="deskripsiKos" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Fasilitas (Centang yang tersedia)</label>
+                    <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                        <label><input type="checkbox" name="fasilitas" value="AC"> AC</label>
+                        <label><input type="checkbox" name="fasilitas" value="WiFi"> WiFi</label>
+                        <label><input type="checkbox" name="fasilitas" value="Kamar Mandi Dalam"> Kamar Mandi Dalam</label>
+                        <label><input type="checkbox" name="fasilitas" value="Parkir"> Parkir</label>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="noPengelola">No. Pengelola *</label>
+                        <input type="tel" id="noPengelola" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="emailPengelola">Email Pengelola *</label>
+                        <input type="email" id="emailPengelola" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit">✅ Pasang Iklan</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // ============ DATABASE FURNITURE ============
+        const furnitureData = [
+            { id: 1, nama: 'Kursi Belajar Ergonomis', kategori: 'Kursi', harga: 35000, deskripsi: 'Kursi belajar dengan sandaran ergonomis yang nyaman untuk belajar atau bekerja berjam-jam.', gambar: '🪑', stok: 15 },
+            { id: 2, nama: 'Kursi Gaming', kategori: 'Kursi', harga: 85000, deskripsi: 'Kursi gaming dengan sokongan lumbar yang sangat nyaman dan tahan lama.', gambar: '🪑', stok: 8 },
+            { id: 3, nama: 'Meja Belajar Sederhana', kategori: 'Meja', harga: 65000, deskripsi: 'Meja belajar minimalis dengan ukuran pas untuk kamar kos yang terbatas.', gambar: '🪑', stok: 20 },
+            { id: 4, nama: 'Meja Lipat Portable', kategori: 'Meja', harga: 45000, deskripsi: 'Meja yang bisa dilipat, sangat praktis dan mudah disimpan.', gambar: '🪑', stok: 12 },
+            { id: 5, nama: 'Meja Komputer', kategori: 'Meja', harga: 95000, deskripsi: 'Meja komputer dengan laci untuk menyimpan barang-barang kecil.', gambar: '🪑', stok: 10 },
+            { id: 6, nama: 'Lemari Gantung Mini', kategori: 'Lemari', harga: 55000, deskripsi: 'Lemari gantung kecil yang hemat tempat, cocok untuk ruang terbatas.', gambar: '🪑', stok: 18 },
+            { id: 7, nama: 'Lemari Plastik 3 Pintu', kategori: 'Lemari', harga: 120000, deskripsi: 'Lemari plastik transparan dengan 3 pintu untuk menyimpan pakaian dan barang.', gambar: '🪑', stok: 7 },
+            { id: 8, nama: 'Lemari Besi Kecil', kategori: 'Lemari', harga: 150000, deskripsi: 'Lemari besi berkualitas tinggi dengan kunci untuk keamanan barang berharga.', gambar: '🪑', stok: 5 },
+            { id: 9, nama: 'Jemuran Portable', kategori: 'Jemuran', harga: 25000, deskripsi: 'Jemuran portable yang mudah dipindahkan dan tidak memakan banyak tempat.', gambar: '🪑', stok: 30 },
+            { id: 10, nama: 'Jemuran Aluminium', kategori: 'Jemuran', harga: 60000, deskripsi: 'Jemuran aluminium yang kuat dan tahan lama, bisa menjemur banyak pakaian.', gambar: '🪑', stok: 14 },
+            { id: 11, nama: 'Jemuran Dinding', kategori: 'Jemuran', harga: 40000, deskripsi: 'Jemuran yang menempel di dinding, menghemat ruang lantai kamar.', gambar: '🪑', stok: 22 },
+            { id: 12, nama: 'Rak Sepatu 2 Tingkat', kategori: 'Rak Sepatu', harga: 30000, deskripsi: 'Rak sepatu plastik 2 tingkat untuk menyimpan hingga 6 pasang sepatu.', gambar: '🪑', stok: 25 },
+            { id: 13, nama: 'Rak Sepatu 5 Tingkat', kategori: 'Rak Sepatu', harga: 65000, deskripsi: 'Rak sepatu besar dengan 5 tingkat, dapat menampung banyak koleksi sepatu.', gambar: '🪑', stok: 11 },
+            { id: 14, nama: 'Rak Sepatu Besi', kategori: 'Rak Sepatu', harga: 85000, deskripsi: 'Rak sepatu besi berkualitas tinggi yang sangat kuat menahan beban.', gambar: '🪑', stok: 9 },
+            { id: 15, nama: 'Rak Sepatu Corner', kategori: 'Rak Sepatu', harga: 75000, deskripsi: 'Rak sepatu berbentuk segitiga untuk sudut ruangan, hemat tempat dan stylish.', gambar: '🪑', stok: 16 }
+        ];
+
+        let filteredFurniture = [...furnitureData];
+        const furnitureFilters = { kategori: 'Semua', harga: null };
+
+        // ============ DATABASE KOS ============
+        const kosData = [
+            { id: 1, nama: 'Kos Modern Kebon Jeruk', harga: 1500000, lokasi: 'Jakarta Barat', jenis: 'Kost Campur', deskripsi: 'Kos modern dengan desain minimalis dan fasilitas lengkap. Lokasi strategis dekat dengan transportasi umum.', fasilitas: ['AC', 'WiFi'], no: '081234567890', email: 'kebon@homigo.id' },
+            { id: 2, nama: 'Kos Nyaman Palmerah', harga: 1200000, lokasi: 'Jakarta Barat', jenis: 'Kost Putri', deskripsi: 'Kos khusus putri dengan keamanan 24 jam dan lingkungan yang tenang.', fasilitas: ['WiFi', 'Parkir'], no: '081234567891', email: 'palmerah@homigo.id' },
+            { id: 3, nama: 'Kos Asri Grogol', harga: 1800000, lokasi: 'Jakarta Barat', jenis: 'Kost Campur', deskripsi: 'Kos asri dengan ruang komunal yang nyaman untuk gathering teman-teman.', fasilitas: ['AC', 'WiFi'], no: '081234567892', email: 'grogol@homigo.id' },
+            { id: 4, nama: 'Kos Strategis Tomang', harga: 1400000, lokasi: 'Jakarta Barat', jenis: 'Kost Putri', deskripsi: 'Kos strategis di area Tomang, dekat dengan universitas dan pusat bisnis.', fasilitas: ['AC', 'Parkir'], no: '081234567893', email: 'tomang@homigo.id' },
+            { id: 5, nama: 'Kos Bersih Taman Sari', harga: 1000000, lokasi: 'Jakarta Barat', jenis: 'Kost Putra', deskripsi: 'Kos bersih dan nyaman di area Taman Sari dengan harga terjangkau.', fasilitas: ['WiFi'], no: '081234567894', email: 'tamansari@homigo.id' },
+            { id: 6, nama: 'Kos Elegan Tanah Abang', harga: 1600000, lokasi: 'Jakarta Pusat', jenis: 'Kost Campur', deskripsi: 'Kos elegan dengan interior modern di pusat kota. Akses mudah ke berbagai tempat penting.', fasilitas: ['AC', 'WiFi'], no: '081234567895', email: 'tanah@homigo.id' },
+            { id: 7, nama: 'Kos Nyaman Cempaka Putih', harga: 1300000, lokasi: 'Jakarta Pusat', jenis: 'Kost Putri', deskripsi: 'Kos nyaman di area Cempaka Putih dengan fasilitas AC dan WiFi gratis.', fasilitas: ['WiFi', 'AC'], no: '081234567896', email: 'cempaka@homigo.id' },
+            { id: 8, nama: 'Kos Senen Indah', harga: 1700000, lokasi: 'Jakarta Pusat', jenis: 'Kost Campur', deskripsi: 'Kos indah di kawasan Senen dengan pemandangan bagus dan fasilitas modern.', fasilitas: ['AC', 'Parkir'], no: '081234567897', email: 'senen@homigo.id' },
+            { id: 9, nama: 'Kos Premium Blok M', harga: 2500000, lokasi: 'Jakarta Selatan', jenis: 'Kost Campur', deskripsi: 'Kos premium di area Blok M, lokasi paling strategis dengan fasilitas terlengkap.', fasilitas: ['AC', 'WiFi'], no: '081234567898', email: 'blokm@homigo.id' },
+            { id: 10, nama: 'Kos Asri Cilandak', harga: 1900000, lokasi: 'Jakarta Selatan', jenis: 'Kost Putri', deskripsi: 'Kos asri khusus putri di Cilandak dengan lingkungan hijau dan tenang.', fasilitas: ['WiFi', 'Parkir'], no: '081234567899', email: 'cilandak@homigo.id' },
+            { id: 11, nama: 'Kos Strategis Tebet', harga: 1450000, lokasi: 'Jakarta Selatan', jenis: 'Kost Campur', deskripsi: 'Kos strategis di Tebet, dekat dengan berbagai area komersial dan kantor.', fasilitas: ['AC', 'WiFi'], no: '081234567800', email: 'tebet@homigo.id' },
+            { id: 12, nama: 'Kos Mampang Berkualitas', harga: 1550000, lokasi: 'Jakarta Selatan', jenis: 'Kost Putra', deskripsi: 'Kos berkualitas di Mampang dengan standar internasional dan pelayanan terbaik.', fasilitas: ['AC', 'Parkir'], no: '081234567801', email: 'mampang@homigo.id' },
+            { id: 13, nama: 'Kos Modern Cibubur', harga: 1800000, lokasi: 'Jakarta Timur', jenis: 'Kost Campur', deskripsi: 'Kos modern di Cibubur dengan teknologi terkini dan kamar yang luas.', fasilitas: ['AC', 'WiFi'], no: '081234567802', email: 'cibubur@homigo.id' },
+            { id: 14, nama: 'Kos Nyaman Cawang', harga: 1200000, lokasi: 'Jakarta Timur', jenis: 'Kost Putri', deskripsi: 'Kos nyaman khusus putri di Cawang dengan lingkungan aman dan terjaga.', fasilitas: ['WiFi', 'AC'], no: '081234567803', email: 'cawang@homigo.id' },
+            { id: 15, nama: 'Kos Bersih Duren Sawit', harga: 1350000, lokasi: 'Jakarta Timur', jenis: 'Kost Campur', deskripsi: 'Kos bersih di Duren Sawit dengan sistem cleaning berkala dan fasilitas bagus.', fasilitas: ['AC', 'Parkir'], no: '081234567804', email: 'durensawit@homigo.id' },
+            { id: 16, nama: 'Kos Pulo Gadung', harga: 950000, lokasi: 'Jakarta Timur', jenis: 'Kost Putra', deskripsi: 'Kos ekonomis di Pulo Gadung dengan harga terjangkau namun berkualitas.', fasilitas: ['WiFi'], no: '081234567805', email: 'pulogadung@homigo.id' },
+            { id: 17, nama: 'Kos Strategis Penjaringan', harga: 1400000, lokasi: 'Jakarta Utara', jenis: 'Kost Campur', deskripsi: 'Kos strategis di Penjaringan dengan akses mudah ke berbagai kawasan bisnis.', fasilitas: ['AC', 'WiFi'], no: '081234567806', email: 'penjaringan@homigo.id' },
+            { id: 18, nama: 'Kos Indah Kelapa Gading', harga: 1600000, lokasi: 'Jakarta Utara', jenis: 'Kost Putri', deskripsi: 'Kos indah di Kelapa Gading dengan fasilitas lengkap dan pemandangan bagus.', fasilitas: ['AC', 'WiFi'], no: '081234567807', email: 'kelapagading@homigo.id' },
+            { id: 19, nama: 'Kos Nyaman Tanjung Priok', harga: 1100000, lokasi: 'Jakarta Utara', jenis: 'Kost Campur', deskripsi: 'Kos nyaman di area Tanjung Priok dengan harga ekonomis dan lokasi strategis.', fasilitas: ['WiFi', 'Parkir'], no: '081234567808', email: 'priok@homigo.id' },
+            { id: 20, nama: 'Kos Premium Sunter', harga: 2000000, lokasi: 'Jakarta Utara', jenis: 'Kost Campur', deskripsi: 'Kos premium di Sunter dengan fasilitas mewah dan pelayanan VIP 24 jam.', fasilitas: ['AC', 'WiFi'], no: '081234567809', email: 'sunter@homigo.id' }
+        ];
+
+        let filteredData = [...kosData];
+        const activeFilters = { lokasi: null, jenis: null, fasilitas: null, harga: null };
+
+        // ============ KOS FUNCTIONS ============
+        function renderListings() {
+            const container = document.getElementById('listingsContainer');
+            if (filteredData.length === 0) {
+                container.innerHTML = '<div class="empty-state">Tidak ada kos yang sesuai dengan filter Anda</div>';
+                return;
+            }
+            container.innerHTML = filteredData.map(kos => `
+                <div class="listing-card">
+                    <div class="listing-image">🏠 ${kos.id <= 3 ? '<span class="listing-badge">TOP LISTING</span>' : ''}</div>
+                    <div class="listing-content">
+                        <div class="listing-title">${kos.nama}</div>
+                        <div class="listing-info">
+                            <span>📍 ${kos.lokasi}</span>
+                            <span>👥 ${kos.jenis}</span>
+                            <span>✓ ${kos.fasilitas.join(', ')}</span>
+                        </div>
+                        <div class="listing-price">Rp ${kos.harga.toLocaleString('id-ID')}/bulan</div>
+                        <div class="listing-action">
+                            <button class="btn-detail" onclick="openDetailModal(${kos.id})">Detail</button>
+                            <button class="btn-hubungi" onclick="hubungiPengelola(${kos.id})">Hubungi</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterBy(type, value) {
+            if (activeFilters[type] === value) {
+                activeFilters[type] = null;
+                document.querySelectorAll(`[data-filter="${value}"]`).forEach(el => el.classList.remove('active'));
+            } else {
+                document.querySelectorAll(`.filter-box a.active`).forEach(el => {
+                    if (el.dataset.filter !== value) el.classList.remove('active');
+                });
+                activeFilters[type] = value;
+                document.querySelectorAll(`[data-filter="${value}"]`).forEach(el => el.classList.add('active'));
+            }
+            applyFilters();
+        }
+
+        function applyFilters() {
+            filteredData = kosData.filter(kos => {
+                if (activeFilters.lokasi && kos.lokasi !== activeFilters.lokasi) return false;
+                if (activeFilters.jenis && kos.jenis !== activeFilters.jenis) return false;
+                if (activeFilters.fasilitas && !kos.fasilitas.includes(activeFilters.fasilitas)) return false;
+                if (activeFilters.harga) {
+                    const [min, max] = activeFilters.harga.split('-').map(Number);
+                    if (kos.harga < min || kos.harga > max) return false;
+                }
+                return true;
+            });
+            renderListings();
+        }
+
+        function openDetailModal(id) {
+            const kos = kosData.find(k => k.id === id);
+            if (!kos) return;
+            const modal = document.getElementById('detailModal');
+            const content = document.getElementById('detailContent');
+            content.innerHTML = `
+                <button class="btn-kembali" onclick="closeModal('detailModal')">← Kembali</button>
+                <h2>${kos.nama}</h2>
+                <div class="detail-container">
+                    <div><div class="detail-image">🏠</div></div>
+                    <div class="detail-info">
+                        <div class="detail-price">Rp ${kos.harga.toLocaleString('id-ID')}/bulan</div>
+                        <h3>📍 Lokasi</h3><p>${kos.lokasi}</p>
+                        <h3>👥 Jenis Kos</h3><p>${kos.jenis}</p>
+                        <h3>📝 Deskripsi</h3><p>${kos.deskripsi}</p>
+                    </div>
+                </div>
+                <div class="detail-features">
+                    <h4>🔧 Fasilitas Tersedia</h4>
+                    <ul>${kos.fasilitas.map(f => `<li>${f}</li>`).join('')}</ul>
+                </div>
+                <div style="background: #f9f9f9; padding: 15px; border-radius: 4px; margin: 20px 0;">
+                    <h4 style="margin-bottom: 10px; color: #333;">📞 Hubungi Pengelola</h4>
+                    <p style="color: #666;">Nomor: <strong>${kos.no}</strong></p>
+                    <p style="color: #666;">Email: <strong>${kos.email}</strong></p>
+                </div>
+                <div class="detail-actions">
+                    <button class="btn-detail" onclick="copyContact('${kos.no}')">📋 Salin No</button>
+                    <button class="btn-hubungi" onclick="hubungiViaWhatsapp('${kos.no}')">💬 WhatsApp</button>
+                </div>
+            `;
+            modal.classList.add('active');
+        }
+
+        function submitPasangIklan(event) {
+            event.preventDefault();
+            const fasilitas = Array.from(document.querySelectorAll('input[name="fasilitas"]:checked')).map(el => el.value);
+            const newKos = {
+                id: kosData.length + 1,
+                nama: document.getElementById('namaKos').value,
+                harga: parseInt(document.getElementById('hargaKos').value),
+                lokasi: document.getElementById('lokasiKos').value,
+                jenis: document.getElementById('jenisKos').value,
+                deskripsi: document.getElementById('deskripsiKos').value,
+                fasilitas: fasilitas,
+                no: document.getElementById('noPengelola').value,
+                email: document.getElementById('emailPengelola').value
+            };
+            kosData.push(newKos);
+            filteredData = [...kosData];
+            alert('✅ Iklan kos berhasil dipasang! Terima kasih telah bergabung dengan HOMIGO.');
+            event.target.reset();
+            closeModal('pasangIklanModal');
+            renderListings();
+        }
+
+        function hubungiPengelola(id) {
+            const kos = kosData.find(k => k.id === id);
+            if (kos) hubungiViaWhatsapp(kos.no);
+        }
+
+        function hubungiViaWhatsapp(number) {
+            const cleanNumber = number.replace(/[^0-9]/g, '');
+            const whatsappNumber = cleanNumber.startsWith('62') ? cleanNumber : '62' + cleanNumber.slice(1);
+            const message = 'Halo, saya tertarik dengan kos di HOMIGO. Bisa memberikan informasi lebih lanjut?';
+            const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+
+        function copyContact(number) {
+            navigator.clipboard.writeText(number).then(() => {
+                alert('✅ Nomor telah disalin ke clipboard!');
+            });
+        }
+
+        // ============ FURNITURE FUNCTIONS ============
+        function renderFurniture() {
+            const container = document.getElementById('furnitureContainer');
+            if (filteredFurniture.length === 0) {
+                container.innerHTML = '<div class="empty-state">Tidak ada furniture yang sesuai dengan filter Anda</div>';
+                return;
+            }
+            container.innerHTML = filteredFurniture.map(furniture => `
+                <div class="listing-card">
+                    <div class="listing-image">${furniture.gambar}</div>
+                    <div class="listing-content">
+                        <div class="listing-title">${furniture.nama}</div>
+                        <div class="listing-info">
+                            <span>🏷️ ${furniture.kategori}</span>
+                            <span>📦 Stok: ${furniture.stok}</span>
+                            <span>✓ ${furniture.deskripsi.substring(0, 30)}...</span>
+                        </div>
+                        <div class="listing-price">Rp ${furniture.harga.toLocaleString('id-ID')}/bulan</div>
+                        <div class="listing-action">
+                            <button class="btn-detail" onclick="openFurnitureDetailModal(${furniture.id})">Detail</button>
+                            <button class="btn-hubungi" onclick="orderFurniture(${furniture.id})">Pesan</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterFurniture(type, value) {
+            if (type === 'kategori') {
+                furnitureFilters.kategori = value;
+                document.querySelectorAll('#furniturePage .sidebar .filter-box:first-child a').forEach(el => el.classList.remove('active'));
+                document.querySelectorAll(`[data-filter="${value}"]`).forEach(el => el.classList.add('active'));
+            } else if (type === 'harga') {
+                if (furnitureFilters.harga === value) {
+                    furnitureFilters.harga = null;
+                    document.querySelectorAll(`#furniturePage .sidebar .filter-box:last-child a`).forEach(el => el.classList.remove('active'));
+                } else {
+                    furnitureFilters.harga = value;
+                    document.querySelectorAll(`#furniturePage .sidebar .filter-box:last-child a`).forEach(el => el.classList.remove('active'));
+                    document.querySelectorAll(`[data-filter="${value}"]`).forEach(el => el.classList.add('active'));
+                }
+            }
+            applyFurnitureFilters();
+        }
+
+        function applyFurnitureFilters() {
+            filteredFurniture = furnitureData.filter(furniture => {
+                if (furnitureFilters.kategori !== 'Semua' && furniture.kategori !== furnitureFilters.kategori) return false;
+                if (furnitureFilters.harga) {
+                    const [min, max] = furnitureFilters.harga.split('-').map(Number);
+                    if (furniture.harga < min || furniture.harga > max) return false;
+                }
+                return true;
+            });
+            renderFurniture();
+        }
+
+        function openFurnitureDetailModal(id) {
+            const furniture = furnitureData.find(f => f.id === id);
+            if (!furniture) return;
+            const modal = document.getElementById('detailModal');
+            const content = document.getElementById('detailContent');
+            content.innerHTML = `
+                <button class="btn-kembali" onclick="closeModal('detailModal')">← Kembali</button>
+                <h2>${furniture.nama}</h2>
+                <div class="detail-container">
+                    <div><div class="detail-image" style="font-size: 120px;">${furniture.gambar}</div></div>
+                    <div class="detail-info">
+                        <div class="detail-price">Rp ${furniture.harga.toLocaleString('id-ID')}/bulan</div>
+                        <h3>🏷️ Kategori</h3><p>${furniture.kategori}</p>
+                        <h3>📝 Deskripsi</h3><p>${furniture.deskripsi}</p>
+                        <h3>📦 Ketersediaan</h3><p><strong>${furniture.stok} unit</strong> tersedia</p>
+                    </div>
+                </div>
+                <div style="background: #f9f9f9; padding: 15px; border-radius: 4px; margin: 20px 0;">
+                    <h4 style="margin-bottom: 10px; color: #333;">💡 Informasi Penyewaan</h4>
+                    <p style="color: #666;">• Sewa per bulan dengan harga yang tertera</p>
+                    <p style="color: #666;">• Garansi kualitas selama penyewaan</p>
+                    <p style="color: #666;">• Gratis pengiriman untuk area Jakarta</p>
+                    <p style="color: #666;">• Bisa langsung dicicil per minggu jika diperlukan</p>
+                </div>
+                <div class="detail-actions">
+                    <button class="btn-detail" onclick="tambahKeKeranjang(${furniture.id})">🛒 Tambah ke Keranjang</button>
+                    <button class="btn-hubungi" onclick="hubungiTentangFurniture(${furniture.id})">💬 Tanya Terlebih Dahulu</button>
+                </div>
+            `;
+            modal.classList.add('active');
+        }
+
+        function orderFurniture(id) {
+            const furniture = furnitureData.find(f => f.id === id);
+            if (furniture) {
+                alert(`✅ ${furniture.nama} ditambahkan ke keranjang!\n\nHarga sewa: Rp ${furniture.harga.toLocaleString('id-ID')}/bulan\n\nSilakan hubungi customer service untuk proses checkout.`);
+            }
+        }
+
+        function tambahKeKeranjang(id) {
+            const furniture = furnitureData.find(f => f.id === id);
+            if (furniture) {
+                alert(`✅ ${furniture.nama} ditambahkan ke keranjang!\n\nSilakan lanjutkan dengan checkout untuk menyelesaikan pesanan.`);
+            }
+        }
+
+        function hubungiTentangFurniture(id) {
+            const furniture = furnitureData.find(f => f.id === id);
+            if (furniture) {
+                const message = `Halo, saya tertarik untuk menyewa ${furniture.nama} dengan harga Rp ${furniture.harga.toLocaleString('id-ID')}/bulan. Apakah masih tersedia?`;
+                const url = `https://wa.me/6281234567890?text=${encodeURIComponent(message)}`;
+                window.open(url, '_blank');
+            }
+        }
+
+        // ============ COMMON FUNCTIONS ============
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+
+        function openPasangIklanModal() {
+            document.getElementById('pasangIklanModal').classList.add('active');
+        }
+
+        function goHome() {
+            document.getElementById('homePage').style.display = 'block';
+            document.getElementById('furniturePage').style.display = 'none';
+            activeFilters.lokasi = null;
+            activeFilters.jenis = null;
+            activeFilters.fasilitas = null;
+            activeFilters.harga = null;
+            document.querySelectorAll('.filter-box a.active').forEach(el => el.classList.remove('active'));
+            filteredData = [...kosData];
+            renderListings();
+            closeModal('detailModal');
+            closeModal('pasangIklanModal');
+            window.scrollTo(0, 0);
+        }
+
+        function goToFurniture() {
+            document.getElementById('homePage').style.display = 'none';
+            document.getElementById('furniturePage').style.display = 'block';
+            renderFurniture();
+            window.scrollTo(0, 0);
+        }
+
+        window.onclick = function(event) {
+            const detailModal = document.getElementById('detailModal');
+            const pasangModal = document.getElementById('pasangIklanModal');
+            if (event.target === detailModal) closeModal('detailModal');
+            if (event.target === pasangModal) closeModal('pasangIklanModal');
+        }
+
+        // INITIAL RENDER
+        renderListings();
+    </script>
+</body>
+</html>
